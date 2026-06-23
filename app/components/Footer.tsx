@@ -1,0 +1,87 @@
+import Icon from "./Icon";
+
+const columns = [
+  {
+    title: "Explore",
+    links: ["Classes", "Programs", "Community", "Pricing"],
+  },
+  {
+    title: "Support",
+    links: ["FAQs", "Contact Us", "Help Center", "Testimonials"],
+  },
+  {
+    title: "Company",
+    links: ["About", "Careers", "Privacy", "Terms"],
+  },
+];
+
+const socials = [
+  { icon: "public", label: "Website" },
+  { icon: "photo_camera", label: "Instagram" },
+  { icon: "play_circle", label: "YouTube" },
+  { icon: "chat", label: "Community" },
+];
+
+export default function Footer() {
+  return (
+    <footer className="relative border-t border-hairline bg-canvas-deep">
+      <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10">
+        <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+          <div>
+            <a href="#top" className="flex items-center gap-2.5">
+              <span className="flex size-9 items-center justify-center rounded-full bg-primary/90">
+                <Icon name="spa" className="text-[1.2rem] text-ink" />
+              </span>
+              <span className="font-display text-[1.35rem] font-bold tracking-tight">
+                Tres Marias
+              </span>
+            </a>
+            <p className="mt-5 max-w-xs text-[0.92rem] leading-relaxed text-muted">
+              A luxury wellness destination — calm, intentional, and built to
+              help you move, breathe, and thrive.
+            </p>
+            <div className="mt-6 flex gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href="#"
+                  aria-label={s.label}
+                  className="state-layer flex size-10 items-center justify-center rounded-full border border-hairline text-muted transition-colors duration-300 hover:text-ink"
+                >
+                  <Icon name={s.icon} className="relative z-10 text-[1.2rem]" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {columns.map((col) => (
+            <div key={col.title}>
+              <p className="eyebrow mb-5">{col.title}</p>
+              <ul className="space-y-3">
+                {col.links.map((l) => (
+                  <li key={l}>
+                    <a
+                      href="#"
+                      className="group inline-flex items-center text-[0.92rem] text-muted transition-colors duration-300 hover:text-ink"
+                    >
+                      {l}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-7 text-[0.82rem] text-muted sm:flex-row">
+          <p>© {new Date().getFullYear()} Tres Marias Wellness. All rights reserved.</p>
+          <p className="flex items-center gap-1.5">
+            Crafted with
+            <Icon name="favorite" fill className="text-[0.9rem] text-gold" />
+            for mindful living
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
