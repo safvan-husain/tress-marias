@@ -1,4 +1,7 @@
 import Icon from "./Icon";
+import { bookingMessage, whatsappUrl } from "../lib/whatsapp";
+
+const whatsappBookingUrl = whatsappUrl(bookingMessage());
 
 const columns = [
   {
@@ -22,9 +25,9 @@ const columns = [
   {
     title: "Get in Touch",
     links: [
-      { label: "Book Now", href: "#book" },
+      { label: "Book Now", href: whatsappBookingUrl, external: true },
       { label: "All Services", href: "#services" },
-      { label: "Contact Us", href: "#book" },
+      { label: "Contact Us", href: whatsappBookingUrl, external: true },
     ],
   },
 ];
@@ -80,6 +83,9 @@ export default function Footer() {
                   <li key={l.label}>
                     <a
                       href={l.href}
+                      {...(l.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                       className="group inline-flex items-center text-[0.92rem] text-muted transition-colors duration-300 hover:text-ink"
                     >
                       {l.label}
@@ -93,14 +99,13 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-7 text-[0.82rem] text-muted sm:flex-row">
           <p>© {new Date().getFullYear()} Tres Marias Beauty &amp; Wellness. All rights reserved.</p>
-          <p className="flex items-center gap-1.5">
-            Crafted with
-            <Icon name="favorite" fill className="text-[0.9rem] text-gold" />
+          <p className="text-muted/60">
+            developed by{" "}
             <a
               href="https://blizmedia.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-ink transition-colors duration-300 hover:text-primary-hover"
+              className="font-bold text-muted transition-colors duration-300 hover:text-ink"
             >
               BLIZ MEDIA LLC
             </a>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Icon from "./Icon";
+import { bookingMessage, whatsappUrl } from "../lib/whatsapp";
 
 type Service = {
   title: string;
@@ -280,7 +281,9 @@ export default function Services() {
                         {s.text}
                       </p>
                       <a
-                        href="#book"
+                        href={whatsappUrl(bookingMessage(s.title))}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="mt-5 inline-flex items-center gap-1.5 text-[0.85rem] font-medium text-primary transition-colors group-hover:text-primary-deep"
                       >
                         Book this service
