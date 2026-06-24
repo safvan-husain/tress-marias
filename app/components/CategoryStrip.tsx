@@ -41,7 +41,7 @@ export default function CategoryStrip() {
               }}
               className={`state-layer flex items-center gap-2 rounded-full px-3 py-2 text-[0.85rem] transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] sm:px-4 ${
                 isActive
-                  ? "bg-primary text-ink"
+                  ? "bg-primary text-on-primary"
                   : "text-muted hover:text-ink"
               }`}
             >

@@ -29,9 +29,10 @@ export default function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(8,19,17,0.55) 0%, rgba(8,19,17,0.45) 35%, rgba(13,28,26,0.82) 100%), radial-gradient(120% 90% at 20% 30%, rgba(46,139,122,0.28), transparent 60%)",
+            "linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(248,251,249,0.78) 35%, rgba(240,247,244,0.92) 100%), radial-gradient(120% 90% at 20% 30%, rgba(46,139,122,0.22), transparent 60%), radial-gradient(80% 70% at 90% 80%, rgba(78,205,180,0.15), transparent 55%)",
         }}
       />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-36 bg-gradient-to-t from-canvas to-transparent" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 pb-44 pt-32 lg:px-10">
         <div className="grid items-center gap-12 lg:grid-cols-[1.7fr_1fr]">
@@ -39,7 +40,7 @@ export default function Hero() {
           <div>
             <div className="reveal glass mb-7 inline-flex items-center gap-2 rounded-full py-2 pl-2 pr-4">
               <span className="flex size-7 items-center justify-center rounded-full bg-primary">
-                <Icon name="spa" className="text-[1rem] text-ink" />
+                <Icon name="spa" className="text-[1rem] text-on-primary" />
               </span>
               <span className="text-[0.82rem] font-medium tracking-wide text-ink">
                 Beauty &amp; Wellness · Home Service
@@ -67,7 +68,7 @@ export default function Hero() {
             >
               <a
                 href="#book"
-                className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-ink transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.6)]"
+                className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.35)]"
               >
                 <span className="relative z-10">Book a service</span>
                 <Icon name="arrow_forward" className="relative z-10 text-[1.15rem]" />
