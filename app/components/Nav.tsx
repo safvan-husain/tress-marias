@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Icon from "./Icon";
+import { bookingMessage, whatsappUrl } from "../lib/whatsapp";
 
 const links = ["Nails", "Hair", "Massage", "Makeup", "Lashes", "Brows"];
 
@@ -47,7 +48,9 @@ export default function Nav() {
         </div>
 
         <a
-          href="#book"
+          href={whatsappUrl(bookingMessage())}
+          target="_blank"
+          rel="noopener noreferrer"
           className="state-layer ripple inline-flex min-h-[44px] items-center gap-2 rounded-full bg-ink px-5 text-[0.9rem] font-medium text-canvas transition-transform duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5"
         >
           <span className="relative z-10">Book now</span>

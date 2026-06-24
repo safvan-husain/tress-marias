@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Icon from "./Icon";
+import BookingForm from "./BookingForm";
 
 export default function Join() {
   return (
@@ -39,28 +40,7 @@ export default function Join() {
             specialists arrive with everything needed to pamper you at your door.
           </p>
 
-          <form
-            className="mx-auto mt-9 flex max-w-md flex-col gap-3 sm:flex-row"
-            action="#"
-          >
-            <label className="glass flex flex-1 items-center gap-2 rounded-full px-5 py-1">
-              <Icon name="mail" className="text-[1.2rem] text-muted" />
-              <input
-                type="email"
-                required
-                placeholder="Your email address"
-                aria-label="Email address"
-                className="w-full bg-transparent py-3 text-[0.95rem] text-ink placeholder:text-muted/70 focus:outline-none"
-              />
-            </label>
-            <button
-              type="submit"
-              className="state-layer ripple inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-ink px-7 text-[0.95rem] font-medium text-canvas transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(13,28,26,0.25)]"
-            >
-              <span className="relative z-10">Request a booking</span>
-              <Icon name="arrow_forward" className="relative z-10 text-[1.15rem]" />
-            </button>
-          </form>
+          <BookingForm />
         </div>
       </div>
     </section>
