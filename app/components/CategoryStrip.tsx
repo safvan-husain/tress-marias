@@ -4,15 +4,16 @@ import { useState } from "react";
 import Icon from "./Icon";
 
 const categories = [
-  { label: "Breathwork", icon: "air" },
-  { label: "Meditation", icon: "self_improvement" },
-  { label: "Yoga", icon: "sports_gymnastics" },
-  { label: "Sound", icon: "graphic_eq" },
-  { label: "Sleep", icon: "bedtime" },
+  { label: "Nails", icon: "back_hand", href: "#nails" },
+  { label: "Hair", icon: "content_cut", href: "#hair" },
+  { label: "Massage", icon: "spa", href: "#massage" },
+  { label: "Makeup", icon: "brush", href: "#makeup" },
+  { label: "Lashes", icon: "visibility", href: "#lashes" },
+  { label: "Brows", icon: "face", href: "#brows" },
 ];
 
 export default function CategoryStrip() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
 
   return (
     <div className="glass-strong flex items-center gap-1 rounded-full p-1.5">
@@ -32,7 +33,12 @@ export default function CategoryStrip() {
             <button
               key={c.label}
               type="button"
-              onClick={() => setActive(i)}
+              onClick={() => {
+                setActive(i);
+                document
+                  .querySelector(c.href)
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
               className={`state-layer flex items-center gap-2 rounded-full px-3 py-2 text-[0.85rem] transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] sm:px-4 ${
                 isActive
                   ? "bg-primary text-ink"
