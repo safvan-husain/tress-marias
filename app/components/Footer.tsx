@@ -41,17 +41,13 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-hairline bg-gradient-to-b from-canvas-deep via-surface-raised to-canvas">
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"
-        aria-hidden
-      />
+    <footer className="relative border-t border-hairline bg-canvas-deep">
       <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>
             <a href="#top" className="flex items-center gap-2.5">
               <span className="flex size-9 items-center justify-center rounded-full bg-primary/90">
-                <Icon name="spa" className="text-[1.2rem] text-on-primary" />
+                <Icon name="spa" className="text-[1.2rem] text-ink" />
               </span>
               <span className="font-display text-[1.35rem] font-bold tracking-tight">
                 Tres Marias

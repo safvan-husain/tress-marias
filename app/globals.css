@@ -1,26 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-canvas: #f8fbf9;
-  --color-canvas-deep: #eef5f2;
-  --color-surface: #ffffff;
-  --color-surface-raised: #f0f7f4;
+  --color-canvas: #0d1c1a;
+  --color-canvas-deep: #081311;
+  --color-surface: #1a2e2a;
+  --color-surface-raised: #1f3631;
   --color-primary: #2e8b7a;
   --color-primary-hover: #4ecdb4;
-  --color-primary-deep: #1a6b5c;
-  --color-gold: #a88b5e;
-  --color-ink: #0d1c1a;
-  --color-on-primary: #ffffff;
-  --color-muted: #5a7a72;
-  --color-hairline: rgba(46, 139, 122, 0.14);
+  --color-gold: #c4a882;
+  --color-ink: #f0ede8;
+  --color-muted: #9bb5af;
+  --color-hairline: rgba(155, 181, 175, 0.12);
 
-  --font-display: var(--font-google-sans-flex);
-  --font-sans: var(--font-google-sans-flex);
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-dm);
+  --font-card: var(--font-google-sans-flex);
 
   --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
 
-  --shadow-soft: 0 18px 50px -20px rgba(46, 139, 122, 0.12);
-  --shadow-raised: 0 30px 70px -24px rgba(46, 139, 122, 0.18);
+  --shadow-soft: 0 18px 50px -20px rgba(0, 0, 0, 0.55);
+  --shadow-raised: 0 30px 70px -24px rgba(0, 0, 0, 0.7);
 }
 
 * {
@@ -33,11 +32,6 @@ html {
 
 body {
   background-color: var(--color-canvas);
-  background-image:
-    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(78, 205, 180, 0.14), transparent),
-    radial-gradient(ellipse 55% 45% at 100% 20%, rgba(46, 139, 122, 0.08), transparent),
-    radial-gradient(ellipse 50% 40% at 0% 60%, rgba(46, 139, 122, 0.06), transparent),
-    linear-gradient(180deg, #ffffff 0%, var(--color-canvas) 45%, var(--color-canvas-deep) 100%);
   color: var(--color-ink);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-weight: 400;
@@ -48,7 +42,7 @@ body {
 
 ::selection {
   background: var(--color-primary);
-  color: var(--color-on-primary);
+  color: var(--color-ink);
 }
 
 /* Material Symbols base */
@@ -75,7 +69,13 @@ body {
 
 @layer utilities {
   .font-display {
-    font-family: var(--font-display), system-ui, sans-serif;
+    font-family: var(--font-display), Georgia, serif;
+  }
+
+  /* Google Sans Flex — scoped to service cards only */
+  .font-card,
+  .font-card * {
+    font-family: var(--font-card), system-ui, sans-serif;
   }
 
   .eyebrow {
@@ -89,7 +89,7 @@ body {
 
   /* Glassmorphism surface used across cards & floating elements */
   .glass {
-    background-color: rgba(255, 255, 255, 0.72);
+    background-color: rgba(26, 46, 42, 0.55);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--color-hairline);
@@ -97,37 +97,11 @@ body {
   }
 
   .glass-strong {
-    background-color: rgba(255, 255, 255, 0.88);
+    background-color: rgba(13, 28, 26, 0.72);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border: 1px solid var(--color-hairline);
     box-shadow: var(--shadow-soft);
-  }
-
-  /* Ambient mesh gradients for section backgrounds */
-  .bg-mesh {
-    background-image:
-      radial-gradient(ellipse 70% 55% at 15% 10%, rgba(78, 205, 180, 0.14), transparent),
-      radial-gradient(ellipse 50% 45% at 85% 25%, rgba(46, 139, 122, 0.1), transparent),
-      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(196, 168, 130, 0.05), transparent);
-  }
-
-  .bg-gradient-green {
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-deep) 0%,
-      var(--color-primary) 45%,
-      var(--color-primary-hover) 100%
-    );
-  }
-
-  .bg-gradient-soft {
-    background: linear-gradient(
-      180deg,
-      var(--color-surface) 0%,
-      var(--color-surface-raised) 50%,
-      var(--color-canvas) 100%
-    );
   }
 
   .card-lift {
@@ -140,7 +114,7 @@ body {
   .card-lift:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-raised);
-    border-color: rgba(46, 139, 122, 0.28);
+    border-color: rgba(78, 205, 180, 0.25);
   }
 
   /* MD3-style hover state layer */
@@ -169,9 +143,9 @@ body {
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(13, 28, 26, 0.55) 0%,
-      rgba(13, 28, 26, 0.12) 45%,
-      rgba(13, 28, 26, 0) 75%
+      rgba(8, 19, 17, 0.85) 0%,
+      rgba(8, 19, 17, 0.25) 45%,
+      rgba(8, 19, 17, 0) 75%
     );
     pointer-events: none;
   }
@@ -217,7 +191,7 @@ body {
     position: absolute;
     border-radius: 9999px;
     transform: scale(0);
-    background: rgba(46, 139, 122, 0.2);
+    background: rgba(240, 237, 232, 0.35);
     animation: ripple-out 0.6s var(--ease-emphasized);
     pointer-events: none;
   }
