@@ -26,7 +26,7 @@ export default function Nav() {
       <nav className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between px-6 lg:px-10">
         <a href="#top" className="flex items-center gap-2.5">
           <span className="flex size-9 items-center justify-center rounded-full bg-primary/90">
-            <Icon name="spa" className="text-[1.2rem] text-ink" />
+            <Icon name="spa" className="text-[1.2rem] text-on-primary" />
           </span>
           <span className="font-display text-[1.35rem] font-bold tracking-tight">
             Tres Marias

@@ -203,8 +203,17 @@ const categories: Category[] = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-[110px]">
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
+    <section id="services" className="relative overflow-hidden py-[110px]">
+      <div className="pointer-events-none absolute inset-0 bg-mesh" aria-hidden />
+      <div
+        className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-24 bottom-32 h-80 w-80 rounded-full bg-primary-hover/12 blur-3xl"
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10">
         {/* Header — asymmetric */}
         <div className="grid items-end gap-8 lg:grid-cols-[1.6fr_1fr]">
           <div className="reveal">
@@ -232,7 +241,7 @@ export default function Services() {
                 data-reveal-delay="40"
               >
                 <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/90">
-                  <Icon name={cat.icon} className="text-[1.4rem] text-ink" />
+                  <Icon name={cat.icon} className="text-[1.4rem] text-on-primary" />
                 </span>
                 <div>
                   <h3 className="font-display text-[1.7rem] font-bold leading-tight text-ink">
@@ -260,7 +269,7 @@ export default function Services() {
                         className="object-cover transition-transform duration-[600ms] ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-105"
                       />
                       <span className="absolute left-4 top-4 z-10 flex size-10 items-center justify-center rounded-full bg-primary/90 backdrop-blur-sm">
-                        <Icon name={cat.icon} className="text-[1.15rem] text-ink" />
+                        <Icon name={cat.icon} className="text-[1.15rem] text-on-primary" />
                       </span>
                     </div>
                     <div className="flex flex-1 flex-col p-6">
@@ -272,7 +281,7 @@ export default function Services() {
                       </p>
                       <a
                         href="#book"
-                        className="mt-5 inline-flex items-center gap-1.5 text-[0.85rem] font-medium text-primary-hover transition-colors group-hover:text-gold"
+                        className="mt-5 inline-flex items-center gap-1.5 text-[0.85rem] font-medium text-primary transition-colors group-hover:text-primary-deep"
                       >
                         Book this service
                         <Icon name="arrow_forward" className="text-[1.05rem]" />
