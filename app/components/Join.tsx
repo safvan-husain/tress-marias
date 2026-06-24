@@ -3,11 +3,11 @@ import Icon from "./Icon";
 
 export default function Join() {
   return (
-    <section id="join" className="relative px-6 py-[90px] lg:px-10">
+    <section id="book" className="relative px-6 py-[90px] lg:px-10">
       <div className="reveal relative mx-auto max-w-[1280px] overflow-hidden rounded-[28px]">
         <Image
-          src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2000&q=90"
-          alt="Still water and soft greenery at dusk"
+          src="https://images.unsplash.com/photo-1543134968-8752069dbf58?auto=format&fit=crop&w=2000&q=90"
+          alt="Delicate flowers floating in water at a serene spa"
           fill
           sizes="(max-width: 1280px) 100vw, 1280px"
           className="object-cover"
@@ -23,20 +23,20 @@ export default function Join() {
         <div className="relative z-10 mx-auto max-w-2xl px-6 py-20 text-center sm:py-24">
           <span className="glass mb-7 inline-flex items-center gap-2 rounded-full py-2 pl-2 pr-4">
             <span className="flex size-6 items-center justify-center rounded-full bg-primary">
-              <Icon name="favorite" className="text-[0.85rem] text-ink" />
+              <Icon name="calendar_month" className="text-[0.85rem] text-ink" />
             </span>
             <span className="text-[0.78rem] font-medium tracking-wide text-ink">
-              Start free
+              Book your appointment
             </span>
           </span>
 
           <h2 className="font-display text-[2.75rem] font-bold leading-[1.08] tracking-tight text-ink sm:text-[3.5rem]">
-            Join our
-            <span className="italic text-gold"> community</span>
+            Bring the salon
+            <span className="italic text-gold"> home</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-[1.05rem] leading-[1.7] text-muted">
-            Begin a calmer, more intentional practice today. No pressure — just
-            the right guidance, made personal.
+            Tell us the service you&rsquo;d like and your preferred time — our
+            specialists arrive with everything needed to pamper you at your door.
           </p>
 
           <form
@@ -57,7 +57,7 @@ export default function Join() {
               type="submit"
               className="state-layer ripple inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-ink transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.6)]"
             >
-              <span className="relative z-10">Join now</span>
+              <span className="relative z-10">Request a booking</span>
               <Icon name="arrow_forward" className="relative z-10 text-[1.15rem]" />
             </button>
           </form>

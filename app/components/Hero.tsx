@@ -2,11 +2,13 @@ import Image from "next/image";
 import Icon from "./Icon";
 import CategoryStrip from "./CategoryStrip";
 
-const avatars = [
-  "photo-1438761681033-6461ffad8d80",
-  "photo-1494790108377-be9c29b29330",
-  "photo-1500648767791-00dcc994a43e",
-  "photo-1534528741775-53994a69daeb",
+const offerings = [
+  { label: "Nail Care", icon: "back_hand", href: "#nails" },
+  { label: "Hair Care & Styling", icon: "content_cut", href: "#hair" },
+  { label: "Massage & Body Wellness", icon: "spa", href: "#massage" },
+  { label: "Beauty & Makeup", icon: "brush", href: "#makeup" },
+  { label: "Eyelash Services", icon: "visibility", href: "#lashes" },
+  { label: "Eyebrow Services", icon: "face", href: "#brows" },
 ];
 
 export default function Hero() {
@@ -16,8 +18,8 @@ export default function Hero() {
       className="relative flex min-h-svh items-center overflow-hidden"
     >
       <Image
-        src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=2000&q=90"
-        alt="A person meditating in a calm, forested setting at dusk"
+        src="https://images.unsplash.com/photo-1610402601271-5b4bd5b3eba4?auto=format&fit=crop&w=2000&q=90"
+        alt="A relaxing hot-stone massage treatment in a calm spa setting"
         fill
         priority
         sizes="100vw"
@@ -37,26 +39,26 @@ export default function Hero() {
           <div>
             <div className="reveal glass mb-7 inline-flex items-center gap-2 rounded-full py-2 pl-2 pr-4">
               <span className="flex size-7 items-center justify-center rounded-full bg-primary">
-                <Icon name="eco" className="text-[1rem] text-ink" />
+                <Icon name="spa" className="text-[1rem] text-ink" />
               </span>
               <span className="text-[0.82rem] font-medium tracking-wide text-ink">
-                AI Wellness
+                Beauty &amp; Wellness · Home Service
               </span>
             </div>
 
             <h1 className="reveal font-display text-[3.25rem] font-bold leading-[1.04] tracking-tight text-ink sm:text-[4rem] lg:text-[4.75rem]">
-              Wellness, Made
+              Salon-Quality Beauty,
               <br />
-              Simple and
-              <span className="italic text-gold"> Personal.</span>
+              In the Comfort of
+              <span className="italic text-gold"> Home.</span>
             </h1>
 
             <p
               className="reveal mt-7 max-w-md text-[1.05rem] leading-[1.7] text-muted"
               data-reveal-delay="80"
             >
-              Personalized practices powered by intelligent guidance — to help
-              you move, breathe, and find stillness, every day.
+              Professional nail, hair, massage, makeup, lash, and brow services —
+              booked on your schedule and brought right to your door.
             </p>
 
             <div
@@ -64,63 +66,50 @@ export default function Hero() {
               data-reveal-delay="160"
             >
               <a
-                href="#join"
+                href="#book"
                 className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-ink transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.6)]"
               >
-                <span className="relative z-10">Begin your journey</span>
+                <span className="relative z-10">Book a service</span>
                 <Icon name="arrow_forward" className="relative z-10 text-[1.15rem]" />
               </a>
               <a
-                href="#classes"
+                href="#services"
                 className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full border border-ink/25 px-7 text-[0.95rem] font-medium text-ink transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:border-ink/50"
               >
-                <span className="relative z-10">Explore classes</span>
-                <Icon name="play_arrow" className="relative z-10 text-[1.2rem]" />
+                <span className="relative z-10">View services</span>
+                <Icon name="arrow_downward" className="relative z-10 text-[1.2rem]" />
               </a>
             </div>
           </div>
 
-          {/* Right — social proof */}
+          {/* Right — services overview */}
           <div className="reveal lg:justify-self-end" data-reveal-delay="220">
-            <div className="glass max-w-sm rounded-[20px] p-6">
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-3">
-                  {avatars.map((id) => (
-                    <span
-                      key={id}
-                      className="relative size-9 overflow-hidden rounded-full border-2 border-surface"
+            <div className="glass w-full max-w-sm rounded-[20px] p-6">
+              <p className="eyebrow mb-4">Our home services</p>
+              <ul className="space-y-1">
+                {offerings.map((o) => (
+                  <li key={o.label}>
+                    <a
+                      href={o.href}
+                      className="state-layer group flex items-center gap-3 rounded-xl px-2 py-2.5 transition-colors"
                     >
-                      <Image
-                        src={`https://images.unsplash.com/${id}?auto=format&fit=crop&w=80&q=75`}
-                        alt=""
-                        fill
-                        sizes="36px"
-                        className="object-cover"
+                      <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/20">
+                        <Icon
+                          name={o.icon}
+                          className="relative z-10 text-[1.15rem] text-primary-hover"
+                        />
+                      </span>
+                      <span className="relative z-10 flex-1 text-[0.95rem] font-medium text-ink">
+                        {o.label}
+                      </span>
+                      <Icon
+                        name="chevron_right"
+                        className="relative z-10 text-[1.2rem] text-muted transition-transform group-hover:translate-x-0.5"
                       />
-                    </span>
-                  ))}
-                </div>
-                <div className="leading-tight">
-                  <p className="font-display text-[1.15rem] font-bold text-ink">
-                    2.5k+{" "}
-                    <span className="text-[0.95rem] font-medium text-gold">
-                      (4.9)
-                    </span>
-                  </p>
-                  <div className="flex items-center gap-0.5 text-gold">
-                    {[0, 1, 2, 3, 4].map((s) => (
-                      <Icon key={s} name="star" fill className="text-[0.85rem]" />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <p className="mt-4 text-[0.95rem] italic leading-relaxed text-muted">
-                &ldquo;This community helped me stay consistent with my wellness
-                journey — it changed how I move through my days.&rdquo;
-              </p>
-              <p className="mt-3 text-[0.8rem] font-medium tracking-wide text-ink/80">
-                Sarah M. · Yoga Enthusiast
-              </p>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

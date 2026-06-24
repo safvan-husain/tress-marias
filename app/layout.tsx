@@ -18,9 +18,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Tres Marias — AI Wellness, Made Simple and Personal",
+  title: "Tres Marias — Beauty & Wellness Home Services",
   description:
-    "A luxury wellness destination. Personalized, AI-guided practices to help you move, breathe, and find stillness.",
+    "Professional nail, hair, massage, makeup, lash, and brow services brought to the comfort of your home.",
 };
 
 export default function RootLayout({
