@@ -46,7 +46,7 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="reveal font-display text-[3.25rem] font-bold leading-[1.04] tracking-tight text-ink sm:text-[4rem] lg:text-[4.75rem]">
+            <h1 className="reveal-hero font-display text-[3.25rem] font-bold leading-[1.04] tracking-tight text-ink sm:text-[4rem] lg:text-[4.75rem]">
               Salon-Quality Beauty,
               <br />
               In the Comfort of

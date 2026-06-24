@@ -92,7 +92,14 @@ export default function Footer() {
           <p className="flex items-center gap-1.5">
             Crafted with
             <Icon name="favorite" fill className="text-[0.9rem] text-gold" />
-            for beautiful living
+            <a
+              href="https://blizmedia.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-ink transition-colors duration-300 hover:text-primary-hover"
+            >
+              BLIZ MEDIA LLC
+            </a>
           </p>
         </div>
       </div>

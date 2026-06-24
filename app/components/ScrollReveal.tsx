@@ -4,7 +4,9 @@ import { useEffect } from "react";
 
 export default function ScrollReveal() {
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+    const els = Array.from(
+      document.querySelectorAll<HTMLElement>(".reveal, .reveal-hero"),
+    );
 
     if (
       !("IntersectionObserver" in window) ||
