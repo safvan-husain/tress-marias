@@ -4,7 +4,7 @@ import BookingForm from "./BookingForm";
 
 export default function Join() {
   return (
-    <section id="book" className="relative bg-canvas-light px-6 py-[90px] lg:px-10">
+    <section id="book" className="cta-section-bg relative px-6 py-[90px] lg:px-10">
       <div className="reveal relative mx-auto max-w-[1280px] overflow-hidden rounded-[28px]">
         <Image
           src="https://images.unsplash.com/photo-1543134968-8752069dbf58?auto=format&fit=crop&w=2000&q=90"
