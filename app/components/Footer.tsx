@@ -41,11 +41,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-hairline bg-gradient-to-b from-canvas-deep via-surface-raised to-canvas">
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"
-        aria-hidden
-      />
+    <footer className="relative border-t border-hairline bg-canvas-deep">
       <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>

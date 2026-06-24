@@ -26,18 +26,11 @@ export default function Hero() {
         sizes="100vw"
         className="object-cover"
       />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(248,251,249,0.78) 35%, rgba(240,247,244,0.92) 100%), radial-gradient(120% 90% at 20% 30%, rgba(46,139,122,0.22), transparent 60%), radial-gradient(80% 70% at 90% 80%, rgba(78,205,180,0.15), transparent 55%)",
-        }}
-      />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-36 bg-gradient-to-t from-canvas to-transparent" />
+      <div className="hero-overlay absolute inset-0" aria-hidden />
+      <div className="hero-bottom-fade pointer-events-none absolute inset-x-0 bottom-0 z-[5]" aria-hidden />
 
       <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 pb-44 pt-32 lg:px-10">
         <div className="grid items-center gap-12 lg:grid-cols-[1.7fr_1fr]">
-          {/* Left — headline */}
           <div>
             <div className="reveal glass mb-7 inline-flex items-center gap-2 rounded-full py-2 pl-2 pr-4">
               <span className="flex size-7 items-center justify-center rounded-full bg-primary">
@@ -71,7 +64,7 @@ export default function Hero() {
                 href={whatsappUrl(bookingMessage())}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.35)]"
+                className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.6)]"
               >
                 <span className="relative z-10">Book a service</span>
                 <Icon name="arrow_forward" className="relative z-10 text-[1.15rem]" />
@@ -86,7 +79,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — services overview */}
           <div className="reveal lg:justify-self-end" data-reveal-delay="220">
             <div className="glass w-full max-w-sm rounded-[20px] p-6">
               <p className="eyebrow mb-4">Our home services</p>
@@ -119,7 +111,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Floating category strip */}
       <div className="absolute inset-x-0 bottom-10 z-10 flex justify-center px-6">
         <div className="reveal" data-reveal-delay="280">
           <CategoryStrip />

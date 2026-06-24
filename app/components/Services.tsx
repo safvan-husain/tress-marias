@@ -204,7 +204,8 @@ const categories: Category[] = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative overflow-hidden py-[110px]">
+    <section id="services" className="relative overflow-hidden bg-canvas-deep py-[110px]">
+      <div className="pointer-events-none absolute inset-0 content-section-bg" aria-hidden />
       <div className="pointer-events-none absolute inset-0 bg-mesh" aria-hidden />
       <div
         className="pointer-events-none absolute -left-32 top-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
