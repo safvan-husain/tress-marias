@@ -2,24 +2,38 @@ import Icon from "./Icon";
 
 const columns = [
   {
-    title: "Explore",
-    links: ["Classes", "Programs", "Community", "Pricing"],
+    title: "Services",
+    links: [
+      { label: "Nail Care", href: "#nails" },
+      { label: "Hair Care & Styling", href: "#hair" },
+      { label: "Massage & Wellness", href: "#massage" },
+      { label: "Beauty & Makeup", href: "#makeup" },
+    ],
   },
   {
-    title: "Support",
-    links: ["FAQs", "Contact Us", "Help Center", "Testimonials"],
+    title: "More Services",
+    links: [
+      { label: "Eyelash Services", href: "#lashes" },
+      { label: "Eyebrow Services", href: "#brows" },
+      { label: "Bridal Makeup", href: "#makeup" },
+      { label: "Event Hairstyling", href: "#hair" },
+    ],
   },
   {
-    title: "Company",
-    links: ["About", "Careers", "Privacy", "Terms"],
+    title: "Get in Touch",
+    links: [
+      { label: "Book Now", href: "#book" },
+      { label: "All Services", href: "#services" },
+      { label: "Contact Us", href: "#book" },
+    ],
   },
 ];
 
 const socials = [
   { icon: "public", label: "Website" },
   { icon: "photo_camera", label: "Instagram" },
-  { icon: "play_circle", label: "YouTube" },
-  { icon: "chat", label: "Community" },
+  { icon: "chat", label: "Messenger" },
+  { icon: "call", label: "Call us" },
 ];
 
 export default function Footer() {
@@ -37,8 +51,8 @@ export default function Footer() {
               </span>
             </a>
             <p className="mt-5 max-w-xs text-[0.92rem] leading-relaxed text-muted">
-              A luxury wellness destination — calm, intentional, and built to
-              help you move, breathe, and thrive.
+              Beauty &amp; wellness home services — professional nail, hair,
+              massage, makeup, lash, and brow care, brought to your door.
             </p>
             <div className="mt-6 flex gap-3">
               {socials.map((s) => (
@@ -59,12 +73,12 @@ export default function Footer() {
               <p className="eyebrow mb-5">{col.title}</p>
               <ul className="space-y-3">
                 {col.links.map((l) => (
-                  <li key={l}>
+                  <li key={l.label}>
                     <a
-                      href="#"
+                      href={l.href}
                       className="group inline-flex items-center text-[0.92rem] text-muted transition-colors duration-300 hover:text-ink"
                     >
-                      {l}
+                      {l.label}
                     </a>
                   </li>
                 ))}
@@ -74,11 +88,11 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-hairline pt-7 text-[0.82rem] text-muted sm:flex-row">
-          <p>© {new Date().getFullYear()} Tres Marias Wellness. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Tres Marias Beauty &amp; Wellness. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
             Crafted with
             <Icon name="favorite" fill className="text-[0.9rem] text-gold" />
-            for mindful living
+            for beautiful living
           </p>
         </div>
       </div>

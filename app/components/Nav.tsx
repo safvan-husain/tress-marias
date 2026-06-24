@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Icon from "./Icon";
 
-const links = ["Classes", "Programs", "Community", "About"];
+const links = ["Nails", "Hair", "Massage", "Makeup", "Lashes", "Brows"];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,7 +33,7 @@ export default function Nav() {
           </span>
         </a>
 
-        <div className="hidden items-center gap-9 md:flex">
+        <div className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
             <a
               key={l}
@@ -47,10 +47,10 @@ export default function Nav() {
         </div>
 
         <a
-          href="#join"
+          href="#book"
           className="state-layer ripple inline-flex min-h-[44px] items-center gap-2 rounded-full bg-ink px-5 text-[0.9rem] font-medium text-canvas transition-transform duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5"
         >
-          <span className="relative z-10">Join now</span>
+          <span className="relative z-10">Book now</span>
           <Icon name="arrow_outward" className="relative z-10 text-[1.05rem]" />
         </a>
       </nav>
