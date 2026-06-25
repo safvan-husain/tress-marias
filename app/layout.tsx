@@ -10,9 +10,9 @@ const googleSansFlex = Google_Sans_Flex({
 });
 
 export const metadata: Metadata = {
-  title: "Tres Marias — Beauty & Wellness Home Services",
+  title: "Tres Marias — Beauty at Home & Advanced Aesthetics in Clinic",
   description:
-    "Professional nail, hair, massage, makeup, lash, and brow services brought to the comfort of your home.",
+    "Salon-quality nail, hair, massage, makeup, lash, and brow services at your home, plus advanced skin, anti-aging, and aesthetic treatments at our clinic.",
 };
 
 export default function RootLayout({

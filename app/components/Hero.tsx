@@ -3,13 +3,19 @@ import Icon from "./Icon";
 import CategoryStrip from "./CategoryStrip";
 import { bookingMessage, whatsappUrl } from "../lib/whatsapp";
 
-const offerings = [
-  { label: "Nail Care", icon: "back_hand", href: "#nails" },
-  { label: "Hair Care & Styling", icon: "content_cut", href: "#hair" },
-  { label: "Massage & Body Wellness", icon: "spa", href: "#massage" },
-  { label: "Beauty & Makeup", icon: "brush", href: "#makeup" },
-  { label: "Eyelash Services", icon: "visibility", href: "#lashes" },
-  { label: "Eyebrow Services", icon: "face", href: "#brows" },
+const worlds = [
+  {
+    label: "At Home",
+    icon: "home_health",
+    desc: "Nails, hair, massage, makeup, lashes & brows at your location.",
+    href: "#at-home",
+  },
+  {
+    label: "In Clinic",
+    icon: "local_hospital",
+    desc: "Skin, anti-aging, injectables, rejuvenation & body treatments.",
+    href: "#in-clinic",
+  },
 ];
 
 export default function Hero() {
@@ -37,23 +43,24 @@ export default function Hero() {
                 <Icon name="spa" className="text-[1rem] text-on-primary" />
               </span>
               <span className="text-[0.82rem] font-medium tracking-wide text-ink">
-                Beauty &amp; Wellness · Home Service
+                Home Service · Aesthetic Clinic
               </span>
             </div>
 
             <h1 className="reveal-hero font-display text-[3.25rem] font-bold leading-[1.04] tracking-tight text-ink sm:text-[4rem] lg:text-[4.75rem]">
-              Salon-Quality Beauty,
+              Beauty at home.
               <br />
-              In the Comfort of
-              <span className="italic text-gold"> Home.</span>
+              Advanced aesthetics
+              <span className="italic text-gold"> in clinic.</span>
             </h1>
 
             <p
               className="reveal mt-7 max-w-md text-[1.05rem] leading-[1.7] text-muted"
               data-reveal-delay="80"
             >
-              Professional nail, hair, massage, makeup, lash, and brow services —
-              booked on your schedule and brought right to your door.
+              From salon-quality nails, hair, and massage at your door to
+              advanced skin and anti-aging treatments at our clinic — choose the
+              care that fits you.
             </p>
 
             <div
@@ -66,46 +73,60 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.6)]"
               >
-                <span className="relative z-10">Book a service</span>
-                <Icon name="arrow_forward" className="relative z-10 text-[1.15rem]" />
+                <Icon name="home_health" className="relative z-10 text-[1.15rem]" />
+                <span className="relative z-10">Book Home Service</span>
               </a>
               <a
-                href="#services"
+                href="#in-clinic"
                 className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full border border-ink/25 px-7 text-[0.95rem] font-medium text-ink transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:border-ink/50"
               >
-                <span className="relative z-10">View services</span>
-                <Icon name="arrow_downward" className="relative z-10 text-[1.2rem]" />
+                <Icon name="local_hospital" className="relative z-10 text-[1.2rem]" />
+                <span className="relative z-10">Explore Clinic Treatments</span>
               </a>
             </div>
           </div>
 
           <div className="reveal lg:justify-self-end" data-reveal-delay="220">
             <div className="glass w-full max-w-sm rounded-[20px] p-6">
-              <p className="eyebrow mb-4">Our home services</p>
-              <ul className="space-y-1">
-                {offerings.map((o) => (
-                  <li key={o.label}>
+              <p className="eyebrow mb-4">Two ways to be cared for</p>
+              <ul className="space-y-2.5">
+                {worlds.map((w) => (
+                  <li key={w.label}>
                     <a
-                      href={o.href}
-                      className="state-layer group flex items-center gap-3 rounded-xl px-2 py-2.5 transition-colors"
+                      href={w.href}
+                      className="state-layer group flex items-start gap-3 rounded-2xl border border-hairline bg-surface/30 p-3.5 transition-colors hover:border-primary-hover/40"
                     >
-                      <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/20">
+                      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/20">
                         <Icon
-                          name={o.icon}
-                          className="relative z-10 text-[1.15rem] text-primary-hover"
+                          name={w.icon}
+                          className="relative z-10 text-[1.2rem] text-primary-hover"
                         />
                       </span>
-                      <span className="relative z-10 flex-1 text-[0.95rem] font-medium text-ink">
-                        {o.label}
+                      <span className="relative z-10 flex-1">
+                        <span className="flex items-center justify-between">
+                          <span className="text-[0.98rem] font-semibold text-ink">
+                            {w.label}
+                          </span>
+                          <Icon
+                            name="chevron_right"
+                            className="text-[1.2rem] text-muted transition-transform group-hover:translate-x-0.5"
+                          />
+                        </span>
+                        <span className="mt-0.5 block text-[0.82rem] leading-snug text-muted">
+                          {w.desc}
+                        </span>
                       </span>
-                      <Icon
-                        name="chevron_right"
-                        className="relative z-10 text-[1.2rem] text-muted transition-transform group-hover:translate-x-0.5"
-                      />
                     </a>
                   </li>
                 ))}
               </ul>
+              <a
+                href="#concern"
+                className="state-layer mt-3 inline-flex w-full items-center justify-center gap-1.5 rounded-2xl px-3 py-2.5 text-[0.85rem] font-medium text-primary-hover transition-colors hover:text-primary"
+              >
+                <Icon name="quiz" className="relative z-10 text-[1.1rem]" />
+                <span className="relative z-10">Not sure? Help me choose</span>
+              </a>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ const whatsappBookingUrl = whatsappUrl(bookingMessage());
 
 const columns = [
   {
-    title: "Services",
+    title: "At Home",
     links: [
       { label: "Nail Care", href: "#nails" },
       { label: "Hair Care & Styling", href: "#hair" },
@@ -14,19 +14,20 @@ const columns = [
     ],
   },
   {
-    title: "More Services",
+    title: "In Clinic",
     links: [
-      { label: "Eyelash Services", href: "#lashes" },
-      { label: "Eyebrow Services", href: "#brows" },
-      { label: "Bridal Makeup", href: "#makeup" },
-      { label: "Event Hairstyling", href: "#hair" },
+      { label: "Skin Glow & Texture", href: "#skin-glow" },
+      { label: "Wrinkles & Anti-Aging", href: "#anti-aging" },
+      { label: "Face Contouring", href: "#contouring" },
+      { label: "Skin Tightening", href: "#tightening" },
     ],
   },
   {
     title: "Get in Touch",
     links: [
-      { label: "Book Now", href: whatsappBookingUrl, external: true },
-      { label: "All Services", href: "#services" },
+      { label: "Book Home Service", href: whatsappBookingUrl, external: true },
+      { label: "Explore Clinic", href: "#in-clinic" },
+      { label: "Find by Concern", href: "#concern" },
       { label: "Contact Us", href: whatsappBookingUrl, external: true },
     ],
   },
@@ -54,8 +55,9 @@ export default function Footer() {
               </span>
             </a>
             <p className="mt-5 max-w-xs text-[0.92rem] leading-relaxed text-muted">
-              Beauty &amp; wellness home services — professional nail, hair,
-              massage, makeup, lash, and brow care, brought to your door.
+              Beauty &amp; wellness home services plus an advanced aesthetic
+              clinic — professional care brought to your door, and medical-grade
+              treatments at our polyclinic.
             </p>
             <div className="mt-6 flex gap-3">
               {socials.map((s) => (
