@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Icon from "./Icon";
 import BookingForm from "./BookingForm";
 
@@ -43,13 +44,13 @@ export default function Join() {
 
           <BookingForm />
 
-          <a
-            href="#in-clinic"
+          <Link
+            href="/clinic-services"
             className="state-layer mt-5 inline-flex items-center gap-2 text-[0.9rem] font-medium text-primary-hover transition-colors hover:text-primary"
           >
             <Icon name="local_hospital" className="relative z-10 text-[1.15rem]" />
             <span className="relative z-10">Or explore clinic treatments</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

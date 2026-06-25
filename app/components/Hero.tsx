@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Icon from "./Icon";
 import CategoryStrip from "./CategoryStrip";
 import { bookingMessage, whatsappUrl } from "../lib/whatsapp";
@@ -8,13 +9,13 @@ const worlds = [
     label: "At Home",
     icon: "home_health",
     desc: "Nails, hair, massage, makeup, lashes & brows at your location.",
-    href: "#at-home",
+    href: "/home-services",
   },
   {
     label: "In Clinic",
     icon: "local_hospital",
     desc: "Skin, anti-aging, injectables, rejuvenation & body treatments.",
-    href: "#in-clinic",
+    href: "/clinic-services",
   },
 ];
 
@@ -76,13 +77,13 @@ export default function Hero() {
                 <Icon name="home_health" className="relative z-10 text-[1.15rem]" />
                 <span className="relative z-10">Book Home Service</span>
               </a>
-              <a
-                href="#in-clinic"
+              <Link
+                href="/clinic-services"
                 className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full border border-ink/25 px-7 text-[0.95rem] font-medium text-ink transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:border-ink/50"
               >
                 <Icon name="local_hospital" className="relative z-10 text-[1.2rem]" />
                 <span className="relative z-10">Explore Clinic Treatments</span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -92,7 +93,7 @@ export default function Hero() {
               <ul className="space-y-2.5">
                 {worlds.map((w) => (
                   <li key={w.label}>
-                    <a
+                    <Link
                       href={w.href}
                       className="state-layer group flex items-start gap-3 rounded-2xl border border-hairline bg-surface/30 p-3.5 transition-colors hover:border-primary-hover/40"
                     >
@@ -116,17 +117,17 @@ export default function Hero() {
                           {w.desc}
                         </span>
                       </span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
-              <a
-                href="#concern"
+              <Link
+                href="/find"
                 className="state-layer mt-3 inline-flex w-full items-center justify-center gap-1.5 rounded-2xl px-3 py-2.5 text-[0.85rem] font-medium text-primary-hover transition-colors hover:text-primary"
               >
                 <Icon name="quiz" className="relative z-10 text-[1.1rem]" />
-                <span className="relative z-10">Not sure? Help me choose</span>
-              </a>
+                <span className="relative z-10">Not sure? Help me find</span>
+              </Link>
             </div>
           </div>
         </div>

@@ -543,3 +543,54 @@ export function clinicTreatmentsForConcern(
 export function homeServicesForConcern(concernId: string): HomeService[] {
   return allHomeServices.filter((s) => s.concerns?.includes(concernId));
 }
+
+// Curated highlights surfaced on the home page preview. Each entry carries the
+// parent category/group context (icon + name) so cards can render standalone,
+// outside of the full menu where that context normally comes from nesting.
+export type FeaturedHomeService = {
+  service: HomeService;
+  icon: string;
+  categoryName: string;
+};
+
+export type FeaturedClinicTreatment = {
+  treatment: ClinicTreatment;
+  icon: string;
+  groupName: string;
+};
+
+function pickHomeService(
+  categoryId: string,
+  title: string,
+): FeaturedHomeService {
+  const category = homeCategories.find((c) => c.id === categoryId);
+  const service = category?.services.find((s) => s.title === title);
+  if (!category || !service) {
+    throw new Error(`Unknown featured home service: ${categoryId}/${title}`);
+  }
+  return { service, icon: category.icon, categoryName: category.name };
+}
+
+function pickClinicTreatment(
+  groupId: string,
+  title: string,
+): FeaturedClinicTreatment {
+  const group = clinicGroups.find((g) => g.id === groupId);
+  const treatment = group?.treatments.find((t) => t.title === title);
+  if (!group || !treatment) {
+    throw new Error(`Unknown featured clinic treatment: ${groupId}/${title}`);
+  }
+  return { treatment, icon: group.icon, groupName: group.name };
+}
+
+export const featuredHomeServices: FeaturedHomeService[] = [
+  pickHomeService("nails", "Gel Manicure & Pedicure"),
+  pickHomeService("hair", "Hair Coloring & Highlights"),
+  pickHomeService("massage", "Swedish Massage"),
+];
+
+export const featuredClinicTreatments: FeaturedClinicTreatment[] = [
+  pickClinicTreatment("skin-glow", "HydraFacial Platinum"),
+  pickClinicTreatment("anti-aging", "Full Face Botox"),
+  pickClinicTreatment("contouring", "Premium Dermal Fillers"),
+];

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Icon from "./Icon";
 import { bookingMessage, whatsappUrl } from "../lib/whatsapp";
 
@@ -7,27 +8,27 @@ const columns = [
   {
     title: "At Home",
     links: [
-      { label: "Nail Care", href: "#nails" },
-      { label: "Hair Care & Styling", href: "#hair" },
-      { label: "Massage & Wellness", href: "#massage" },
-      { label: "Beauty & Makeup", href: "#makeup" },
+      { label: "Nail Care", href: "/home-services#nails" },
+      { label: "Hair Care & Styling", href: "/home-services#hair" },
+      { label: "Massage & Wellness", href: "/home-services#massage" },
+      { label: "Beauty & Makeup", href: "/home-services#makeup" },
     ],
   },
   {
     title: "In Clinic",
     links: [
-      { label: "Skin Glow & Texture", href: "#skin-glow" },
-      { label: "Wrinkles & Anti-Aging", href: "#anti-aging" },
-      { label: "Face Contouring", href: "#contouring" },
-      { label: "Skin Tightening", href: "#tightening" },
+      { label: "Skin Glow & Texture", href: "/clinic-services#skin-glow" },
+      { label: "Wrinkles & Anti-Aging", href: "/clinic-services#anti-aging" },
+      { label: "Face Contouring", href: "/clinic-services#contouring" },
+      { label: "Skin Tightening", href: "/clinic-services#tightening" },
     ],
   },
   {
     title: "Get in Touch",
     links: [
       { label: "Book Home Service", href: whatsappBookingUrl, external: true },
-      { label: "Explore Clinic", href: "#in-clinic" },
-      { label: "Find by Concern", href: "#concern" },
+      { label: "Explore Clinic", href: "/clinic-services" },
+      { label: "Help me find", href: "/find" },
       { label: "Contact Us", href: whatsappBookingUrl, external: true },
     ],
   },
@@ -46,14 +47,14 @@ export default function Footer() {
       <div className="mx-auto max-w-[1280px] px-6 py-16 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>
-            <a href="#top" className="flex items-center gap-2.5">
+            <Link href="/" className="flex items-center gap-2.5">
               <span className="flex size-9 items-center justify-center rounded-full bg-primary/90">
                 <Icon name="spa" className="text-[1.2rem] text-on-primary" />
               </span>
               <span className="font-display text-[1.35rem] font-bold tracking-tight">
                 Tres Marias
               </span>
-            </a>
+            </Link>
             <p className="mt-5 max-w-xs text-[0.92rem] leading-relaxed text-muted">
               Beauty &amp; wellness home services plus an advanced aesthetic
               clinic — professional care brought to your door, and medical-grade
@@ -77,19 +78,29 @@ export default function Footer() {
             <div key={col.title}>
               <p className="eyebrow mb-5">{col.title}</p>
               <ul className="space-y-3">
-                {col.links.map((l) => (
-                  <li key={l.label}>
-                    <a
-                      href={l.href}
-                      {...(l.external
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                      className="group inline-flex items-center text-[0.92rem] text-muted transition-colors duration-300 hover:text-ink"
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((l) =>
+                  l.external ? (
+                    <li key={l.label}>
+                      <a
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center text-[0.92rem] text-muted transition-colors duration-300 hover:text-ink"
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={l.label}>
+                      <Link
+                        href={l.href}
+                        className="group inline-flex items-center text-[0.92rem] text-muted transition-colors duration-300 hover:text-ink"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           ))}

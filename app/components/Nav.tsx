@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Icon from "./Icon";
 import { bookingMessage, whatsappUrl } from "../lib/whatsapp";
 
 const links = [
-  { label: "At Home", href: "#at-home" },
-  { label: "In Clinic", href: "#in-clinic" },
-  { label: "Find by Concern", href: "#concern" },
+  { label: "At Home", href: "/home-services" },
+  { label: "In Clinic", href: "/clinic-services" },
+  { label: "Help me find", href: "/find" },
 ];
 
 export default function Nav() {
@@ -29,25 +30,25 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between px-6 lg:px-10">
-        <a href="#top" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5">
           <span className="flex size-9 items-center justify-center rounded-full bg-primary/90">
             <Icon name="spa" className="text-[1.2rem] text-on-primary" />
           </span>
           <span className="font-display text-[1.35rem] font-bold tracking-tight">
             Tres Marias
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
-            <a
+            <Link
               key={l.label}
               href={l.href}
               className="group relative text-[0.92rem] text-muted transition-colors duration-300 hover:text-ink"
             >
               {l.label}
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gold transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] group-hover:w-full" />
-            </a>
+            </Link>
           ))}
         </div>
 
