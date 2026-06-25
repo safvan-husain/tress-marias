@@ -12,3 +12,30 @@ export function whatsappUrl(message?: string): string {
   if (!message) return base;
   return `${base}?text=${encodeURIComponent(message)}`;
 }
+
+type AppointmentRequest = {
+  treatment: string;
+  date?: string;
+  time?: string;
+  name?: string;
+  phone?: string;
+};
+
+export function appointmentRequestMessage({
+  treatment,
+  date,
+  time,
+  name,
+  phone,
+}: AppointmentRequest): string {
+  const lines = [
+    `Hi, I'd like to request a clinic appointment with TressMarias Aesthetic & Beauty Polyclinic.`,
+    ``,
+    `Treatment: ${treatment}`,
+  ];
+  if (date) lines.push(`Preferred date: ${date}`);
+  if (time) lines.push(`Preferred time: ${time}`);
+  if (name?.trim()) lines.push(`Name: ${name.trim()}`);
+  if (phone?.trim()) lines.push(`Phone: ${phone.trim()}`);
+  return lines.join("\n");
+}

@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 import Icon from "./Icon";
 import { bookingMessage, whatsappUrl } from "../lib/whatsapp";
 
-const links = ["Nails", "Hair", "Massage", "Makeup", "Lashes", "Brows"];
+const links = [
+  { label: "At Home", href: "#at-home" },
+  { label: "In Clinic", href: "#in-clinic" },
+  { label: "Find by Concern", href: "#concern" },
+];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,11 +41,11 @@ export default function Nav() {
         <div className="hidden items-center gap-7 lg:flex">
           {links.map((l) => (
             <a
-              key={l}
-              href={`#${l.toLowerCase()}`}
+              key={l.label}
+              href={l.href}
               className="group relative text-[0.92rem] text-muted transition-colors duration-300 hover:text-ink"
             >
-              {l}
+              {l.label}
               <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gold transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] group-hover:w-full" />
             </a>
           ))}

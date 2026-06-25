@@ -35,9 +35,15 @@ export default function CategoryStrip() {
               type="button"
               onClick={() => {
                 setActive(i);
-                document
-                  .querySelector(c.href)
-                  ?.scrollIntoView({ behavior: "smooth" });
+                // Navigate via the hash so ServicesExplorer can switch to the
+                // correct tab before scrolling to the category.
+                if (window.location.hash === c.href) {
+                  document
+                    .getElementById(c.href.slice(1))
+                    ?.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  window.location.hash = c.href;
+                }
               }}
               className={`state-layer flex items-center gap-2 rounded-full px-3 py-2 text-[0.85rem] transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] sm:px-4 ${
                 isActive

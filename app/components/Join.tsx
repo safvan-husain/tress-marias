@@ -32,15 +32,24 @@ export default function Join() {
           </span>
 
           <h2 className="font-display text-[2.75rem] font-bold leading-[1.08] tracking-tight text-ink sm:text-[3.5rem]">
-            Bring the salon
-            <span className="italic text-gold"> home</span>
+            Ready when
+            <span className="italic text-gold"> you are</span>
           </h2>
           <p className="mx-auto mt-5 max-w-md text-[1.05rem] leading-[1.7] text-muted">
-            Tell us the service you&rsquo;d like and your preferred time — our
-            specialists arrive with everything needed to pamper you at your door.
+            Book a home service over WhatsApp, or request a clinic appointment
+            and we&rsquo;ll confirm your time — beauty and advanced aesthetics,
+            on your schedule.
           </p>
 
           <BookingForm />
+
+          <a
+            href="#in-clinic"
+            className="state-layer mt-5 inline-flex items-center gap-2 text-[0.9rem] font-medium text-primary-hover transition-colors hover:text-primary"
+          >
+            <Icon name="local_hospital" className="relative z-10 text-[1.15rem]" />
+            <span className="relative z-10">Or explore clinic treatments</span>
+          </a>
         </div>
       </div>
     </section>
