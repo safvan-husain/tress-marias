@@ -1,19 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Icon from "./Icon";
 
 const categories = [
-  { label: "Nails", icon: "back_hand", href: "#nails" },
-  { label: "Hair", icon: "content_cut", href: "#hair" },
-  { label: "Massage", icon: "spa", href: "#massage" },
-  { label: "Makeup", icon: "brush", href: "#makeup" },
-  { label: "Lashes", icon: "visibility", href: "#lashes" },
-  { label: "Brows", icon: "face", href: "#brows" },
+  { label: "Nails", icon: "back_hand", id: "nails" },
+  { label: "Hair", icon: "content_cut", id: "hair" },
+  { label: "Massage", icon: "spa", id: "massage" },
+  { label: "Makeup", icon: "brush", id: "makeup" },
+  { label: "Lashes", icon: "visibility", id: "lashes" },
+  { label: "Brows", icon: "face", id: "brows" },
 ];
 
 export default function CategoryStrip() {
   const [active, setActive] = useState(0);
+  const router = useRouter();
 
   return (
     <div className="glass-strong flex items-center gap-1 rounded-full p-1.5">
@@ -35,15 +37,9 @@ export default function CategoryStrip() {
               type="button"
               onClick={() => {
                 setActive(i);
-                // Navigate via the hash so ServicesExplorer can switch to the
-                // correct tab before scrolling to the category.
-                if (window.location.hash === c.href) {
-                  document
-                    .getElementById(c.href.slice(1))
-                    ?.scrollIntoView({ behavior: "smooth" });
-                } else {
-                  window.location.hash = c.href;
-                }
+                // Categories live on the dedicated home-services page; deep-link
+                // to the matching section there.
+                router.push(`/home-services#${c.id}`);
               }}
               className={`state-layer flex items-center gap-2 rounded-full px-3 py-2 text-[0.85rem] transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] sm:px-4 ${
                 isActive

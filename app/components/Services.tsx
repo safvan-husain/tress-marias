@@ -1,4 +1,6 @@
-import ServicesExplorer from "./ServicesExplorer";
+import Link from "next/link";
+import Icon from "./Icon";
+import ServicesPreview from "./ServicesPreview";
 
 export default function Services() {
   return (
@@ -25,17 +27,25 @@ export default function Services() {
               Beauty at home. Advanced aesthetics in clinic.
             </h2>
           </div>
-          <p
-            className="reveal text-[1.02rem] leading-[1.75] text-muted"
-            data-reveal-delay="80"
-          >
-            Two ways to feel your best — professional beauty &amp; wellness
-            brought to your home, and advanced medical aesthetics at our clinic.
-            Start with how you&rsquo;d like to be cared for.
-          </p>
+          <div className="reveal" data-reveal-delay="80">
+            <p className="text-[1.02rem] leading-[1.75] text-muted">
+              Two ways to feel your best — professional beauty &amp; wellness
+              brought to your home, and advanced medical aesthetics at our
+              clinic. Here&rsquo;s a taste of each.
+            </p>
+            <Link
+              href="/find"
+              className="state-layer mt-4 inline-flex items-center gap-1.5 rounded-full text-[0.9rem] font-medium text-primary-hover transition-colors hover:text-primary"
+            >
+              <Icon name="quiz" className="relative z-10 text-[1.1rem]" />
+              <span className="relative z-10">
+                Not sure? Help me find the right service
+              </span>
+            </Link>
+          </div>
         </div>
 
-        <ServicesExplorer />
+        <ServicesPreview />
       </div>
     </section>
   );
