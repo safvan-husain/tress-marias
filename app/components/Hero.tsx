@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-0 items-center overflow-hidden md:min-h-svh"
+      className="relative flex min-h-svh items-center overflow-hidden"
     >
       <Image
         src="https://images.unsplash.com/photo-1610402601271-5b4bd5b3eba4?auto=format&fit=crop&w=2000&q=90"
@@ -36,7 +36,7 @@ export default function Hero() {
       <div className="hero-overlay absolute inset-0" aria-hidden />
       <div className="hero-bottom-fade pointer-events-none absolute inset-x-0 bottom-0 z-[5] hidden md:block" aria-hidden />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1280px] px-5 pb-8 pt-[5.5rem] md:px-6 md:pb-44 md:pt-32 lg:px-10">
+      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[1280px] flex-col justify-center px-5 pb-8 pt-[5.5rem] md:px-6 md:pb-44 md:pt-32 lg:px-10">
         <div className="grid items-center gap-5 md:gap-12 lg:grid-cols-[1.7fr_1fr]">
           <div>
             <div className="reveal glass mb-4 inline-flex items-center gap-2 rounded-full py-2 pl-2 pr-4 md:mb-7">

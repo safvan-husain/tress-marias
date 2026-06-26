@@ -151,7 +151,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-end justify-center sm:items-center"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-label={`Book ${treatment.title}`}
@@ -165,21 +165,21 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
 
       <div
         ref={dialogRef}
-        className="glass-strong modal-pop relative z-10 flex max-h-[92svh] w-full max-w-lg flex-col overflow-hidden rounded-t-[28px] sm:rounded-[28px]"
+        className="glass-strong modal-pop relative z-10 flex max-h-[calc(100svh-2rem)] w-full max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-[20px] sm:max-h-[92svh] sm:max-w-lg sm:rounded-[28px]"
       >
         {/* Header */}
-        <div className="relative shrink-0 overflow-hidden bg-gradient-green px-6 py-6">
+        <div className="relative shrink-0 overflow-hidden bg-gradient-green px-4 py-4 sm:px-6 sm:py-6">
           <div
             className="pointer-events-none absolute -right-10 -top-12 h-44 w-44 rounded-full bg-white/10 blur-2xl"
             aria-hidden
           />
           <div className="relative flex items-start justify-between gap-4">
             <div>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-black/15 px-3 py-1 text-[0.7rem] font-medium uppercase tracking-wide text-on-primary">
-                <Icon name="local_hospital" className="text-[0.95rem]" />
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-black/15 px-2.5 py-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-on-primary sm:px-3 sm:py-1 sm:text-[0.7rem]">
+                <Icon name="local_hospital" className="text-[0.85rem] sm:text-[0.95rem]" />
                 In-clinic treatment
               </span>
-              <h3 className="mt-3 font-display text-[1.4rem] font-bold leading-tight text-on-primary">
+              <h3 className="mt-2 font-display text-[1.15rem] font-bold leading-tight text-on-primary sm:mt-3 sm:text-[1.4rem]">
                 {treatment.title}
               </h3>
             </div>
@@ -195,7 +195,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
         </div>
 
         {/* Body */}
-        <div className="flex-1 overflow-y-auto px-6 py-6">
+        <div className="flex-1 overflow-y-auto px-4 py-4 sm:px-6 sm:py-6">
           {request === "confirmed" ? (
             <ConfirmationView
               treatmentTitle={treatment.title}
@@ -211,11 +211,11 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                 <span className="flex size-6 items-center justify-center rounded-full bg-primary/25 text-[0.72rem] font-bold text-primary-hover">
                   1
                 </span>
-                <p className="text-[0.95rem] font-medium text-ink">
+                <p className="text-[0.88rem] font-medium text-ink sm:text-[0.95rem]">
                   Choose a date
                 </p>
               </div>
-              <div className="mt-4 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="mt-3 flex gap-1.5 overflow-x-auto pb-1.5 sm:mt-4 sm:gap-2 sm:pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {days.map((d) => {
                   const isActive = selectedDay?.key === d.key;
                   return (
@@ -224,7 +224,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                       type="button"
                       disabled={d.closed}
                       onClick={() => selectDay(d)}
-                      className={`flex min-w-[64px] shrink-0 flex-col items-center gap-0.5 rounded-2xl border px-3 py-2.5 transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] ${
+                      className={`flex min-w-[56px] shrink-0 flex-col items-center gap-0.5 rounded-xl border px-2.5 py-2 transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] sm:min-w-[64px] sm:rounded-2xl sm:px-3 sm:py-2.5 ${
                         isActive
                           ? "border-primary-hover bg-primary text-on-primary"
                           : d.closed
@@ -235,7 +235,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                       <span className="text-[0.7rem] uppercase tracking-wide opacity-80">
                         {d.weekday}
                       </span>
-                      <span className="font-display text-[1.15rem] font-bold leading-none">
+                      <span className="font-display text-[1rem] font-bold leading-none sm:text-[1.15rem]">
                         {d.day}
                       </span>
                       <span className="text-[0.65rem] opacity-70">
@@ -247,7 +247,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
               </div>
 
               {/* Step 2 — availability + time slots */}
-              <div className="mt-7 flex items-center gap-2">
+              <div className="mt-5 flex items-center gap-2 sm:mt-7">
                 <span
                   className={`flex size-6 items-center justify-center rounded-full text-[0.72rem] font-bold transition-colors ${
                     selectedDay
@@ -258,7 +258,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                   2
                 </span>
                 <p
-                  className={`text-[0.95rem] font-medium transition-colors ${
+                  className={`text-[0.88rem] font-medium transition-colors sm:text-[0.95rem] ${
                     selectedDay ? "text-ink" : "text-muted/60"
                   }`}
                 >
@@ -266,15 +266,15 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                 </p>
               </div>
 
-              <div className="mt-4 min-h-[96px]">
+              <div className="mt-3 min-h-[72px] sm:mt-4 sm:min-h-[96px]">
                 {!selectedDay && (
-                  <p className="rounded-2xl border border-dashed border-hairline px-4 py-6 text-center text-[0.85rem] text-muted">
+                  <p className="rounded-xl border border-dashed border-hairline px-3 py-4 text-center text-[0.8rem] text-muted sm:rounded-2xl sm:px-4 sm:py-6 sm:text-[0.85rem]">
                     Select a date above to check available appointment times.
                   </p>
                 )}
 
                 {selectedDay && availability === "checking" && (
-                  <div className="flex items-center justify-center gap-3 rounded-2xl border border-hairline bg-surface/30 px-4 py-7 text-[0.88rem] text-muted">
+                  <div className="flex items-center justify-center gap-3 rounded-xl border border-hairline bg-surface/30 px-3 py-5 text-[0.82rem] text-muted sm:rounded-2xl sm:px-4 sm:py-7 sm:text-[0.88rem]">
                     <span className="size-4 animate-spin rounded-full border-2 border-primary-hover/30 border-t-primary-hover" />
                     Checking availability…
                   </div>
@@ -296,7 +296,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                 )}
 
                 {selectedDay && availability === "available" && (
-                  <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
+                  <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-4 sm:gap-2">
                     {BASE_SLOTS.map((slot) => {
                       const isOpen = slots.includes(slot);
                       const isActive = selectedSlot === slot;
@@ -306,7 +306,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                           type="button"
                           disabled={!isOpen}
                           onClick={() => setSelectedSlot(slot)}
-                          className={`rounded-xl border px-2 py-2.5 text-[0.8rem] font-medium transition-all duration-200 ${
+                          className={`rounded-lg border px-1.5 py-2 text-[0.72rem] font-medium transition-all duration-200 sm:rounded-xl sm:px-2 sm:py-2.5 sm:text-[0.8rem] ${
                             isActive
                               ? "border-primary-hover bg-primary text-on-primary"
                               : isOpen
@@ -323,7 +323,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
               </div>
 
               {/* Step 3 — contact details */}
-              <div className="mt-7 flex items-center gap-2">
+              <div className="mt-5 flex items-center gap-2 sm:mt-7">
                 <span
                   className={`flex size-6 items-center justify-center rounded-full text-[0.72rem] font-bold transition-colors ${
                     selectedSlot
@@ -334,7 +334,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                   3
                 </span>
                 <p
-                  className={`text-[0.95rem] font-medium transition-colors ${
+                  className={`text-[0.88rem] font-medium transition-colors sm:text-[0.95rem] ${
                     selectedSlot ? "text-ink" : "text-muted/60"
                   }`}
                 >
@@ -342,9 +342,9 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                   <span className="font-normal text-muted">(optional)</span>
                 </p>
               </div>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                <label className="glass flex items-center gap-2 rounded-xl px-4 py-1">
-                  <Icon name="person" className="text-[1.1rem] text-muted" />
+              <div className="mt-3 grid gap-2.5 sm:mt-4 sm:gap-3 sm:grid-cols-2">
+                <label className="glass flex items-center gap-2 rounded-xl px-3 py-1 sm:px-4">
+                  <Icon name="person" className="text-[1rem] text-muted sm:text-[1.1rem]" />
                   <input
                     type="text"
                     value={name}
@@ -352,11 +352,11 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                     placeholder="Full name"
                     aria-label="Full name"
                     disabled={!selectedSlot}
-                    className="w-full bg-transparent py-2.5 text-[0.9rem] text-ink placeholder:text-muted/70 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                    className="w-full bg-transparent py-2 text-[0.85rem] text-ink placeholder:text-muted/70 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 sm:py-2.5 sm:text-[0.9rem]"
                   />
                 </label>
-                <label className="glass flex items-center gap-2 rounded-xl px-4 py-1">
-                  <Icon name="call" className="text-[1.1rem] text-muted" />
+                <label className="glass flex items-center gap-2 rounded-xl px-3 py-1 sm:px-4">
+                  <Icon name="call" className="text-[1rem] text-muted sm:text-[1.1rem]" />
                   <input
                     type="tel"
                     value={phone}
@@ -364,7 +364,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                     placeholder="Phone number"
                     aria-label="Phone number"
                     disabled={!selectedSlot}
-                    className="w-full bg-transparent py-2.5 text-[0.9rem] text-ink placeholder:text-muted/70 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                    className="w-full bg-transparent py-2 text-[0.85rem] text-ink placeholder:text-muted/70 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 sm:py-2.5 sm:text-[0.9rem]"
                   />
                 </label>
               </div>
@@ -374,9 +374,9 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
 
         {/* Footer / action */}
         {request !== "confirmed" && (
-          <div className="shrink-0 border-t border-hairline bg-canvas-deep/40 px-6 py-4">
+          <div className="shrink-0 border-t border-hairline bg-canvas-deep/40 px-4 py-3 sm:px-6 sm:py-4">
             {selectedSlot && (
-              <p className="mb-3 flex items-center justify-center gap-1.5 text-center text-[0.82rem] text-muted">
+              <p className="mb-2 flex items-center justify-center gap-1.5 text-center text-[0.78rem] text-muted sm:mb-3 sm:text-[0.82rem]">
                 <Icon
                   name="event_available"
                   className="text-[1.05rem] text-primary-hover"
@@ -388,7 +388,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
               type="button"
               disabled={!selectedSlot || request === "submitting"}
               onClick={handleSubmit}
-              className="state-layer ripple inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.6)] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:shadow-none"
+              className="state-layer ripple inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-[0.9rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.6)] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:shadow-none sm:min-h-[50px] sm:px-7 sm:text-[0.95rem]"
             >
               {request === "submitting" ? (
                 <>
@@ -405,7 +405,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
                 </>
               )}
             </button>
-            <p className="mt-2.5 text-center text-[0.72rem] leading-relaxed text-muted/70">
+            <p className="mt-2 text-center text-[0.68rem] leading-relaxed text-muted/70 sm:mt-2.5 sm:text-[0.72rem]">
               This is a request, not a confirmed booking. Our team will verify
               availability and confirm your appointment.
             </p>
@@ -430,23 +430,23 @@ function ConfirmationView({
   onClose: () => void;
 }) {
   return (
-    <div className="flex flex-col items-center py-4 text-center">
-      <span className="flex size-16 items-center justify-center rounded-full bg-primary/20">
+    <div className="flex flex-col items-center py-2 text-center sm:py-4">
+      <span className="flex size-14 items-center justify-center rounded-full bg-primary/20 sm:size-16">
         <Icon
           name="check_circle"
           fill
-          className="text-[2.2rem] text-primary-hover"
+          className="text-[1.9rem] text-primary-hover sm:text-[2.2rem]"
         />
       </span>
-      <h4 className="mt-5 font-display text-[1.4rem] font-bold text-ink">
+      <h4 className="mt-4 font-display text-[1.2rem] font-bold text-ink sm:mt-5 sm:text-[1.4rem]">
         Appointment requested
       </h4>
-      <p className="mt-2 max-w-sm text-[0.9rem] leading-relaxed text-muted">
+      <p className="mt-2 max-w-sm text-[0.85rem] leading-relaxed text-muted sm:text-[0.9rem]">
         Thanks! We&rsquo;ve received your request and our team will reach out
         shortly to confirm your appointment.
       </p>
 
-      <div className="mt-6 w-full rounded-2xl border border-hairline bg-surface/40 p-5 text-left">
+      <div className="mt-4 w-full rounded-xl border border-hairline bg-surface/40 p-4 text-left sm:mt-6 sm:rounded-2xl sm:p-5">
         <Detail icon="medical_services" label="Treatment" value={treatmentTitle} />
         {date && <Detail icon="calendar_month" label="Date" value={date} />}
         {time && <Detail icon="schedule" label="Time" value={time} />}
@@ -473,7 +473,7 @@ function ConfirmationView({
       <button
         type="button"
         onClick={onClose}
-        className="state-layer mt-6 inline-flex min-h-[46px] w-full items-center justify-center rounded-full border border-ink/20 px-7 text-[0.9rem] font-medium text-ink transition-colors hover:border-ink/40"
+        className="state-layer mt-4 inline-flex min-h-[42px] w-full items-center justify-center rounded-full border border-ink/20 px-6 text-[0.85rem] font-medium text-ink transition-colors hover:border-ink/40 sm:mt-6 sm:min-h-[46px] sm:px-7 sm:text-[0.9rem]"
       >
         <span className="relative z-10">Done</span>
       </button>
