@@ -6,15 +6,25 @@ import Icon from "./Icon";
 import HomeServiceCard from "./HomeServiceCard";
 import ClinicTreatmentCard from "./ClinicTreatmentCard";
 import ClinicBookingModal from "./ClinicBookingModal";
+import CategoryChipStrip from "./CategoryChipStrip";
 import {
-  featuredClinicTreatments,
-  featuredHomeServices,
+  clinicGroupChips,
+  clinicGroups,
+  homeCategories,
+  homeCategoryChips,
   type ClinicTreatment,
 } from "../data/services";
 
+const PREVIEW_COUNT = 3;
+
 export default function ServicesPreview() {
+  const [homeCategoryIndex, setHomeCategoryIndex] = useState(0);
+  const [clinicGroupIndex, setClinicGroupIndex] = useState(0);
   const [bookingTreatment, setBookingTreatment] =
     useState<ClinicTreatment | null>(null);
+
+  const activeHomeCategory = homeCategories[homeCategoryIndex];
+  const activeClinicGroup = clinicGroups[clinicGroupIndex];
 
   return (
     <>
@@ -29,12 +39,23 @@ export default function ServicesPreview() {
           viewMoreLabel="View all home services"
         />
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredHomeServices.map((f, i) => (
+        <div className="mt-8 flex justify-center">
+          <CategoryChipStrip
+            items={homeCategoryChips}
+            activeIndex={homeCategoryIndex}
+            onActiveIndexChange={setHomeCategoryIndex}
+          />
+        </div>
+
+        <div
+          key={activeHomeCategory.id}
+          className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {activeHomeCategory.services.slice(0, PREVIEW_COUNT).map((service, i) => (
             <HomeServiceCard
-              key={f.service.title}
-              service={f.service}
-              icon={f.icon}
+              key={service.title}
+              service={service}
+              icon={activeHomeCategory.icon}
               delay={i * 60}
             />
           ))}
@@ -52,15 +73,26 @@ export default function ServicesPreview() {
           viewMoreLabel="View all clinic treatments"
         />
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredClinicTreatments.map((f, i) => (
+        <div className="mt-8 flex justify-center">
+          <CategoryChipStrip
+            items={clinicGroupChips}
+            activeIndex={clinicGroupIndex}
+            onActiveIndexChange={setClinicGroupIndex}
+          />
+        </div>
+
+        <div
+          key={activeClinicGroup.id}
+          className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {activeClinicGroup.treatments.slice(0, PREVIEW_COUNT).map((treatment, i) => (
             <ClinicTreatmentCard
-              key={f.treatment.title}
-              treatment={f.treatment}
-              icon={f.icon}
-              groupName={f.groupName}
+              key={treatment.title}
+              treatment={treatment}
+              icon={activeClinicGroup.icon}
+              groupName={activeClinicGroup.name}
               delay={i * 60}
-              onBook={() => setBookingTreatment(f.treatment)}
+              onBook={() => setBookingTreatment(treatment)}
             />
           ))}
         </div>

@@ -544,6 +544,38 @@ export function homeServicesForConcern(concernId: string): HomeService[] {
   return allHomeServices.filter((s) => s.concerns?.includes(concernId));
 }
 
+const HOME_CHIP_LABELS: Record<string, string> = {
+  nails: "Nails",
+  hair: "Hair",
+  massage: "Massage",
+  makeup: "Makeup",
+  lashes: "Lashes",
+  brows: "Brows",
+};
+
+const CLINIC_CHIP_LABELS: Record<string, string> = {
+  "skin-glow": "Skin Glow",
+  "anti-aging": "Anti-Aging",
+  contouring: "Contouring",
+  tightening: "Tightening",
+  pigmentation: "Pigmentation",
+  body: "Body",
+  wellness: "Wellness",
+  consultation: "Consult",
+};
+
+export const homeCategoryChips = homeCategories.map((category) => ({
+  id: category.id,
+  label: HOME_CHIP_LABELS[category.id] ?? category.name,
+  icon: category.icon,
+}));
+
+export const clinicGroupChips = clinicGroups.map((group) => ({
+  id: group.id,
+  label: CLINIC_CHIP_LABELS[group.id] ?? group.name,
+  icon: group.icon,
+}));
+
 // Curated highlights surfaced on the home page preview. Each entry carries the
 // parent category/group context (icon + name) so cards can render standalone,
 // outside of the full menu where that context normally comes from nesting.

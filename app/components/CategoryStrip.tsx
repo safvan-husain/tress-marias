@@ -2,70 +2,21 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Icon from "./Icon";
-
-const categories = [
-  { label: "Nails", icon: "back_hand", id: "nails" },
-  { label: "Hair", icon: "content_cut", id: "hair" },
-  { label: "Massage", icon: "spa", id: "massage" },
-  { label: "Makeup", icon: "brush", id: "makeup" },
-  { label: "Lashes", icon: "visibility", id: "lashes" },
-  { label: "Brows", icon: "face", id: "brows" },
-];
+import CategoryChipStrip from "./CategoryChipStrip";
+import { homeCategoryChips } from "../data/services";
 
 export default function CategoryStrip() {
   const [active, setActive] = useState(0);
   const router = useRouter();
 
   return (
-    <div className="glass-strong flex items-center gap-1 rounded-full p-1.5">
-      <button
-        type="button"
-        aria-label="Previous category"
-        onClick={() => setActive((a) => (a - 1 + categories.length) % categories.length)}
-        className="state-layer flex size-10 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:text-ink"
-      >
-        <Icon name="chevron_left" className="relative z-10 text-[1.3rem]" />
-      </button>
-
-      <div className="flex items-center gap-1">
-        {categories.map((c, i) => {
-          const isActive = i === active;
-          return (
-            <button
-              key={c.label}
-              type="button"
-              onClick={() => {
-                setActive(i);
-                // Categories live on the dedicated home-services page; deep-link
-                // to the matching section there.
-                router.push(`/home-services#${c.id}`);
-              }}
-              className={`state-layer flex items-center gap-2 rounded-full px-3 py-2 text-[0.85rem] transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] sm:px-4 ${
-                isActive
-                  ? "bg-primary text-on-primary"
-                  : "text-muted hover:text-ink"
-              }`}
-            >
-              <Icon name={c.icon} className="relative z-10 text-[1.2rem]" />
-              <span
-                className={`relative z-10 ${isActive ? "inline" : "hidden sm:inline"}`}
-              >
-                {c.label}
-              </span>
-            </button>
-          );
-        })}
-      </div>
-
-      <button
-        type="button"
-        aria-label="Next category"
-        onClick={() => setActive((a) => (a + 1) % categories.length)}
-        className="state-layer flex size-10 shrink-0 items-center justify-center rounded-full text-muted transition-colors hover:text-ink"
-      >
-        <Icon name="chevron_right" className="relative z-10 text-[1.3rem]" />
-      </button>
-    </div>
+    <CategoryChipStrip
+      items={homeCategoryChips}
+      activeIndex={active}
+      onActiveIndexChange={setActive}
+      onItemActivate={(_index, item) => {
+        router.push(`/home-services#${item.id}`);
+      }}
+    />
   );
 }
