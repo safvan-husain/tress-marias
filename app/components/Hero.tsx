@@ -34,9 +34,9 @@ export default function Hero() {
         className="object-cover"
       />
       <div className="hero-overlay absolute inset-0" aria-hidden />
-      <div className="hero-bottom-fade pointer-events-none absolute inset-x-0 bottom-0 z-[5] hidden md:block" aria-hidden />
+      <div className="hero-bottom-fade pointer-events-none absolute inset-x-0 bottom-0 z-[5]" aria-hidden />
 
-      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[1280px] flex-col justify-center px-5 pb-8 pt-[5.5rem] md:px-6 md:pb-44 md:pt-32 lg:px-10">
+      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[1280px] flex-col justify-center px-5 pb-28 pt-[5.5rem] md:px-6 md:pb-44 md:pt-32 lg:px-10">
         <div className="grid items-center gap-5 md:gap-12 lg:grid-cols-[1.7fr_1fr]">
           <div>
             <div className="reveal glass mb-4 inline-flex items-center gap-2 rounded-full py-2 pl-2 pr-4 md:mb-7">
@@ -48,7 +48,7 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="reveal-hero font-display text-[2.15rem] font-bold leading-[1.08] tracking-tight text-ink sm:text-[3.25rem] md:text-[4rem] lg:text-[4.75rem]">
+            <h1 className="reveal-hero font-display text-[2.65rem] font-bold leading-[1.06] tracking-tight text-ink sm:text-[3.25rem] md:text-[4rem] lg:text-[4.75rem]">
               Beauty at home.
               <br />
               Advanced aesthetics
@@ -133,7 +133,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-10 z-10 hidden justify-center px-6 md:flex">
+      <div className="absolute inset-x-0 bottom-6 z-10 flex justify-center px-4 md:bottom-10 md:px-6">
         <div className="reveal" data-reveal-delay="280">
           <CategoryStrip />
         </div>
