@@ -67,20 +67,12 @@ export default function Nav({
               Account
             </Link>
           ) : (
-            <>
-              <Link
-                href="/login"
-                className="hidden text-[0.88rem] font-medium text-muted transition-colors hover:text-ink sm:inline"
-              >
-                Log in
-              </Link>
-              <Link
-                href="/signup"
-                className="hidden text-[0.88rem] font-medium text-primary-hover transition-colors hover:text-primary sm:inline"
-              >
-                Sign up
-              </Link>
-            </>
+            <Link
+              href="/login"
+              className="hidden text-[0.88rem] font-medium text-muted transition-colors hover:text-ink sm:inline"
+            >
+              Log in
+            </Link>
           )}
 
           <a
