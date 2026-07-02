@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import PageHeader from "../components/PageHeader";
-import HomeServicesMenu from "../components/HomeServicesMenu";
+import PageHeader from "../../components/PageHeader";
+import HomeServicesMenu from "../../components/HomeServicesMenu";
 
 export const metadata: Metadata = {
   title: "Home Services — Tres Marias Beauty & Wellness",

@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Google_Sans_Flex } from "next/font/google";
 import "./globals.css";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import ScrollReveal from "./components/ScrollReveal";
-
 const googleSansFlex = Google_Sans_Flex({
   variable: "--font-google-sans-flex",
   subsets: ["latin"],
@@ -40,12 +36,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300,0..1,0&display=block"
         />
       </head>
-      <body className="min-h-full">
-        <Nav />
-        {children}
-        <Footer />
-        <ScrollReveal />
-      </body>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

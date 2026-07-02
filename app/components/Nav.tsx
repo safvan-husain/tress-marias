@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import { bookingMessage, whatsappUrl } from "../lib/whatsapp";
+import type { SessionPayload } from "@/app/lib/auth/definitions";
 
 const links = [
   { label: "At Home", href: "/home-services" },
@@ -11,8 +12,13 @@ const links = [
   { label: "Help me find", href: "/find" },
 ];
 
-export default function Nav() {
+export default function Nav({
+  session,
+}: {
+  session: SessionPayload | null;
+}) {
   const [scrolled, setScrolled] = useState(false);
+  const isCustomer = session?.role === "customer";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -52,15 +58,41 @@ export default function Nav() {
           ))}
         </div>
 
-        <a
-          href={whatsappUrl(bookingMessage())}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="state-layer ripple inline-flex min-h-[44px] items-center gap-2 rounded-full bg-ink px-5 text-[0.9rem] font-medium text-canvas transition-transform duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5"
-        >
-          <span className="relative z-10">Book now</span>
-          <Icon name="arrow_outward" className="relative z-10 text-[1.05rem]" />
-        </a>
+        <div className="flex items-center gap-3 sm:gap-4">
+          {isCustomer ? (
+            <Link
+              href="/account"
+              className="hidden text-[0.88rem] font-medium text-muted transition-colors hover:text-ink sm:inline"
+            >
+              Account
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="hidden text-[0.88rem] font-medium text-muted transition-colors hover:text-ink sm:inline"
+              >
+                Log in
+              </Link>
+              <Link
+                href="/signup"
+                className="hidden text-[0.88rem] font-medium text-primary-hover transition-colors hover:text-primary sm:inline"
+              >
+                Sign up
+              </Link>
+            </>
+          )}
+
+          <a
+            href={whatsappUrl(bookingMessage())}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="state-layer ripple inline-flex min-h-[44px] items-center gap-2 rounded-full bg-ink px-5 text-[0.9rem] font-medium text-canvas transition-transform duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5"
+          >
+            <span className="relative z-10">Book now</span>
+            <Icon name="arrow_outward" className="relative z-10 text-[1.05rem]" />
+          </a>
+        </div>
       </nav>
     </header>
   );

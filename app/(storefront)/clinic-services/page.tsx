@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import PageHeader from "../components/PageHeader";
-import ClinicServicesMenu from "../components/ClinicServicesMenu";
+import PageHeader from "../../components/PageHeader";
+import ClinicServicesMenu from "../../components/ClinicServicesMenu";
 
 export const metadata: Metadata = {
   title: "Clinic Services — Tres Marias Aesthetic & Beauty Polyclinic",

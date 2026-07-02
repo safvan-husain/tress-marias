@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import PageHeader from "../components/PageHeader";
-import ConcernExplorer from "../components/ConcernExplorer";
+import PageHeader from "../../components/PageHeader";
+import ConcernExplorer from "../../components/ConcernExplorer";
 
 export const metadata: Metadata = {
   title: "Help Me Find — Tres Marias Beauty & Wellness",
