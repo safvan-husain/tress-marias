@@ -72,7 +72,7 @@ export default function Hero() {
                 href={whatsappUrl(bookingMessage())}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.6)]"
+                className="state-layer ripple inline-flex min-h-[48px] items-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(197,160,89,0.6)]"
               >
                 <Icon name="home_health" className="relative z-10 text-[1.15rem]" />
                 <span className="relative z-10">Book Home Service</span>

@@ -18,7 +18,7 @@ export default function Join() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(8,19,17,0.9), rgba(8,19,17,0.95)), radial-gradient(90% 120% at 80% 10%, rgba(46,139,122,0.32), transparent 55%)",
+              "linear-gradient(180deg, rgba(8,19,17,0.9), rgba(8,19,17,0.95)), radial-gradient(90% 120% at 80% 10%, rgba(197,160,89,0.32), transparent 55%)",
           }}
         />
 

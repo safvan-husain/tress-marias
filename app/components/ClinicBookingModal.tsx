@@ -388,7 +388,7 @@ export default function ClinicBookingModal({ treatment, onClose }: Props) {
               type="button"
               disabled={!selectedSlot || request === "submitting"}
               onClick={handleSubmit}
-              className="state-layer ripple inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-[0.9rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.6)] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:shadow-none sm:min-h-[50px] sm:px-7 sm:text-[0.95rem]"
+              className="state-layer ripple inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-[0.9rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(197,160,89,0.6)] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 disabled:hover:shadow-none sm:min-h-[50px] sm:px-7 sm:text-[0.95rem]"
             >
               {request === "submitting" ? (
                 <>

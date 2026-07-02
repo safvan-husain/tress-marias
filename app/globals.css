@@ -6,10 +6,10 @@
   --color-canvas-light: #1a2e2a;
   --color-surface: #1a2e2a;
   --color-surface-raised: #1f3631;
-  --color-primary: #2e8b7a;
-  --color-primary-hover: #4ecdb4;
-  --color-primary-deep: #1a6b5c;
-  --color-gold: #c4a882;
+  --color-primary: #c5a059;
+  --color-primary-hover: #f1d592;
+  --color-primary-deep: #8b6b23;
+  --color-gold: #c5a059;
   --color-ink: #f0ede8;
   --color-on-primary: #ffffff;
   --color-muted: #9bb5af;
@@ -36,9 +36,9 @@ html {
 body {
   background-color: var(--color-canvas);
   background-image:
-    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(46, 139, 122, 0.14), transparent),
-    radial-gradient(ellipse 55% 45% at 100% 20%, rgba(78, 205, 180, 0.08), transparent),
-    radial-gradient(ellipse 50% 40% at 0% 60%, rgba(46, 139, 122, 0.06), transparent),
+    radial-gradient(ellipse 80% 55% at 50% -10%, rgba(197, 160, 89, 0.14), transparent),
+    radial-gradient(ellipse 55% 45% at 100% 20%, rgba(241, 213, 146, 0.08), transparent),
+    radial-gradient(ellipse 50% 40% at 0% 60%, rgba(197, 160, 89, 0.06), transparent),
     linear-gradient(
       180deg,
       var(--color-canvas-light) 0%,
@@ -55,7 +55,7 @@ body {
 
 ::selection {
   background: var(--color-primary);
-  color: var(--color-ink);
+  color: var(--color-on-primary);
 }
 
 /* Material Symbols base */
@@ -132,7 +132,7 @@ body {
       ),
       radial-gradient(
         120% 90% at 20% 30%,
-        rgba(46, 139, 122, 0.28),
+        rgba(197, 160, 89, 0.28),
         transparent 60%
       );
   }
@@ -140,8 +140,8 @@ body {
   .content-section-bg {
     background-color: var(--color-canvas-deep);
     background-image:
-      radial-gradient(ellipse 92% 55% at 50% 46%, rgba(46, 139, 122, 0.13), transparent 72%),
-      radial-gradient(ellipse 56% 46% at 16% 52%, rgba(78, 205, 180, 0.08), transparent 65%),
+      radial-gradient(ellipse 92% 55% at 50% 46%, rgba(197, 160, 89, 0.13), transparent 72%),
+      radial-gradient(ellipse 56% 46% at 16% 52%, rgba(241, 213, 146, 0.08), transparent 65%),
       linear-gradient(
         180deg,
         var(--color-canvas-deep) 0%,
@@ -154,7 +154,7 @@ body {
   .cta-section-bg {
     background-color: var(--color-canvas);
     background-image:
-      radial-gradient(ellipse 75% 65% at 50% -5%, rgba(46, 139, 122, 0.1), transparent 68%),
+      radial-gradient(ellipse 75% 65% at 50% -5%, rgba(197, 160, 89, 0.1), transparent 68%),
       linear-gradient(
         180deg,
         var(--color-canvas) 0%,
@@ -165,9 +165,9 @@ body {
 
   .bg-mesh {
     background-image:
-      radial-gradient(ellipse 70% 55% at 15% 10%, rgba(78, 205, 180, 0.1), transparent),
-      radial-gradient(ellipse 50% 45% at 85% 25%, rgba(46, 139, 122, 0.08), transparent),
-      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(196, 168, 130, 0.04), transparent);
+      radial-gradient(ellipse 70% 55% at 15% 10%, rgba(241, 213, 146, 0.1), transparent),
+      radial-gradient(ellipse 50% 45% at 85% 25%, rgba(197, 160, 89, 0.08), transparent),
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(197, 160, 89, 0.04), transparent);
   }
 
   .bg-gradient-green {
@@ -198,7 +198,7 @@ body {
   .card-lift:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-raised);
-    border-color: rgba(78, 205, 180, 0.25);
+    border-color: rgba(241, 213, 146, 0.25);
   }
 
   .state-layer {
@@ -281,7 +281,7 @@ body {
     position: absolute;
     border-radius: 9999px;
     transform: scale(0);
-    background: rgba(78, 205, 180, 0.2);
+    background: rgba(241, 213, 146, 0.2);
     animation: ripple-out 0.6s var(--ease-emphasized);
     pointer-events: none;
   }

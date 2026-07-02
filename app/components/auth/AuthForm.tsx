@@ -92,7 +92,7 @@ export default function AuthForm({
       <button
         type="submit"
         disabled={pending}
-        className="state-layer ripple mt-2 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(46,139,122,0.6)] disabled:cursor-not-allowed disabled:opacity-50"
+        className="state-layer ripple mt-2 inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-7 text-[0.95rem] font-medium text-on-primary transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-12px_rgba(197,160,89,0.6)] disabled:cursor-not-allowed disabled:opacity-50"
       >
         {pending ? (
           <>
