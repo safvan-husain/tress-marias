@@ -46,7 +46,7 @@ export default function ClinicTreatmentCard({
           {treatment.text}
         </p>
 
-        <ul className="mt-4 flex flex-wrap gap-1.5">
+        <ul className="mt-4 mb-6 flex flex-wrap gap-1.5">
           {treatment.benefits.slice(0, 3).map((b) => (
             <li
               key={b}
@@ -61,7 +61,7 @@ export default function ClinicTreatmentCard({
         <button
           type="button"
           onClick={onBook}
-          className="state-layer ripple mt-6 inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-primary-hover/40 bg-primary/15 px-5 text-[0.85rem] font-medium text-primary-hover transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:border-primary-hover hover:bg-primary hover:text-on-primary"
+          className="state-layer ripple mt-auto inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-primary-hover/40 bg-primary/15 px-5 text-[0.85rem] font-medium text-primary-hover transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] hover:border-primary-hover hover:bg-primary hover:text-on-primary"
         >
           <Icon name="event_available" className="relative z-10 text-[1.1rem]" />
           <span className="relative z-10">Check appointment availability</span>
